@@ -60,6 +60,7 @@ img {
   height: 237px;
   width: 50%;
 }
+}
 @media only screen and (min-width: 900px){
 .header {
   float: left;
@@ -80,6 +81,5 @@ img {
   float: left;
   height: 295px;
   width: 33%;
-}
 }
 }
