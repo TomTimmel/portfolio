@@ -1,0 +1,18 @@
+.header1{
+  float: left;
+  width: 100%;
+}
+
+.nav {
+  float: right;
+}
+
+.projects1 {
+  clear: both;
+}
+
+.projects1 div {
+  display: inline-block;
+  width: 49%;
+  height: 207px;
+}

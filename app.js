@@ -25,6 +25,4 @@ portData.forEach(function(ele){
 
 portfolio.forEach(function(a){
   $('#portfolios').append(a.toHtml());
-  console.log(a);
-  console.log($('#portfolios'));
 });
