@@ -26,3 +26,14 @@ portData.forEach(function(ele){
 portfolio.forEach(function(a){
   $('#portfolios').append(a.toHtml());
 });
+
+handleNav = function() {
+  $('.nav').on('click', '.tab', function(event){
+    event.preventDefault();
+    $('.tab-content').hide();
+    var $selectedTab = $(this).data('content');
+    $('#' + $selectedTab).fadeIn();
+  });
+};
+
+handleNav();
