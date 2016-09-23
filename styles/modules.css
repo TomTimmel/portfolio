@@ -1,16 +1,29 @@
-.header1 {
-  background-color: #a52a2a;
+
+.icon-menu {
+  font-size: 3em;
+  float: right;
 }
 
-div.template {
+.nav ul {
   display: none;
+  padding: 0;
+  clear: both;
 }
 
-.nav a{
-  font-size: 24px;
-  text-decoration: none;
-  color: black;
-  background-color: red;
+.nav:hover ul{
+  display:block;
+}
+
+.nav ul li:hover a {
+  color: grey;
+}
+
+.nav li {
+  margin-right: .4em;
+  font-size: 1.5em;
+  padding: .5em .2em;
+  border: solid black 1px;
+  border-radius: 5% 25%;
 }
 
 #projects1 h1{
@@ -31,4 +44,28 @@ div.template {
   font-size: 16px;
   background-color: #cd5c5c;
   margin: 0;
+}
+
+@media only screen and (min-width: 640px) {
+  .icon-menu {
+    display: none;
+  }
+
+.nav {
+  float: right;
+}
+  .nav ul {
+    display: block;
+  }
+
+  .nav li {
+    border: none;
+    border-radius: none;
+  }
+
+  .nav ul li {
+    display: inline;
+    border-bottom: none;
+  }
+
 }

@@ -1,18 +1,36 @@
-.header1{
+/** {
+  border: solid black 2px;
+}*/
+
+.header1 {
   float: left;
   width: 100%;
 }
-
-.nav {
-  float: right;
-}
-
 .projects1 {
-  clear: both;
+  clear: both;;
+}
+#proImage {
+  width:60%;
 }
 
-.projects1 div {
-  display: inline-block;
-  width: 49%;
-  height: 207px;
+#about_image {
+  width: 20%;
+  float: left;
+}
+
+@media only screen and (min-width: 500px){
+#proImage {
+  width: 30%;
+}
+
+#portfolios div{
+  float:left;
+  width: 50%;
+  height: 400px:
+  background-color: #cd5c5c;
+}
+#about_image {
+  width: 10%;
+  float: left;
+}
 }
