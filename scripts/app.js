@@ -7,16 +7,24 @@ function PortItem (opts) {
   this.authors = opts.authors;
   this.webUrl = opts.webUrl;
   this.created = opts.created;
+  this.image = opts.image;
 }
 
 PortItem.prototype.toHtml = function() {
-  var $newPortItem = $('div.template').clone();
-  $newPortItem.find('h1').text(this.title);
-  $newPortItem.find('h2').text(this.authors);
-  $newPortItem.find('a').attr('href', this.webUrl);
-  $newPortItem.find('time').text(this.created);
-  $newPortItem.removeClass('template');
-  return $newPortItem;
+  var source = $('#template').html();
+  console.log(source);
+  var template = Handlebars.compile(source);
+  console.log(template);
+  var html = template(this);
+  console.log(html);
+  return html;
+  // var $newPortItem = $('div.template').clone();
+  // $newPortItem.find('h1').text(this.title);
+  // $newPortItem.find('h2').text(this.authors);
+  // $newPortItem.find('a').attr('href', this.webUrl);
+  // $newPortItem.find('time').text(this.created);
+  // $newPortItem.removeClass('template');
+  // return $newPortItem;
 };
 
 portData.forEach(function(ele){

@@ -1,0 +1,86 @@
+/** {
+  border: red dotted 1px;
+}*/
+h1 {
+  margin-top: 0;
+}
+.header{
+  height: 237px;
+  width:100%;
+  margin: 0;
+  text-align: center;
+  background-color: #a52a2a;
+}
+img {
+  height: 237px;
+  width: 100%;
+}
+.links {
+  height: 237px;
+  width:100%;
+  margin: 0;
+  background-color: #a52a2a;
+  text-align: center;
+}
+.links a {
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+}
+
+.projects {
+  height: 237px;
+  width 100%;
+  background-color: #a52a2a;
+  text-align: center;
+}
+.projects a {
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+}
+
+@media only screen and (min-width: 500px){
+.header {
+  float: left;
+  height: 237px;
+  width: 50%;
+}
+img {
+  float: left;
+  height: 237px;
+  width: 50%;
+}
+.links {
+  float: left;
+  height: 237px;
+  width: 50%;
+}
+.projects {
+  float: left;
+  height: 237px;
+  width: 50%;
+}
+}
+@media only screen and (min-width: 900px){
+.header {
+  float: left;
+  height: 295px;
+  width: 33%;
+}
+img {
+  float: left;
+  height: 295px;
+  width: 33%;
+}
+.links {
+  float: left;
+  height: 295px;
+  width: 33%;
+}
+.projects {
+  float: left;
+  height: 295px;
+  width: 33%;
+}
+}
