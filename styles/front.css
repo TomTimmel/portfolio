@@ -41,46 +41,46 @@ img {
 }
 
 @media only screen and (min-width: 500px){
-.header {
-  float: left;
-  height: 237px;
-  width: 50%;
-}
-img {
-  float: left;
-  height: 237px;
-  width: 50%;
-}
-.links {
-  float: left;
-  height: 237px;
-  width: 50%;
-}
-.projects {
-  float: left;
-  height: 237px;
-  width: 50%;
-}
+  .header {
+    float: left;
+    height: 237px;
+    width: 50%;
+  }
+  img {
+    float: left;
+    height: 237px;
+    width: 50%;
+  }
+  .links {
+    float: left;
+    height: 237px;
+    width: 50%;
+  }
+  .projects {
+    float: left;
+    height: 237px;
+    width: 50%;
+  }
 }
 @media only screen and (min-width: 900px){
-.header {
-  float: left;
-  height: 295px;
-  width: 33%;
-}
-img {
-  float: left;
-  height: 295px;
-  width: 33%;
-}
-.links {
-  float: left;
-  height: 295px;
-  width: 33%;
-}
-.projects {
-  float: left;
-  height: 295px;
-  width: 33%;
-}
+  .header {
+    float: left;
+    height: 295px;
+    width: 33%;
+  }
+  img {
+    float: left;
+    height: 295px;
+    width: 33%;
+  }
+  .links {
+    float: left;
+    height: 295px;
+    width: 33%;
+  }
+  .projects {
+    float: left;
+    height: 295px;
+    width: 33%;
+  }
 }

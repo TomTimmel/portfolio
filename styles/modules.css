@@ -1,7 +1,7 @@
 
 .icon-menu {
   font-size: 3em;
-  float: right;
+  text-align: : right;
 }
 
 .nav ul {
@@ -52,7 +52,7 @@
   }
 
 .nav {
-  float: right;
+  text-align: right;
 }
   .nav ul {
     display: block;
@@ -66,6 +66,10 @@
   .nav ul li {
     display: inline;
     border-bottom: none;
+  }
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
   }
 
 }

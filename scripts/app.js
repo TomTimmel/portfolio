@@ -44,4 +44,15 @@ handleNav = function() {
   });
 };
 
+selectAbout = function() {
+  $('.select').on('change', function(event){
+    event.preventDefault();
+    if($(this).val('#awa')) {
+      $('#me').hide();
+      $('#yester').hide();
+    }
+  });
+};
+
 handleNav();
+selectAbout();
