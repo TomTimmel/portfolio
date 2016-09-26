@@ -25,41 +25,70 @@
 
   </head>
   <body>
-    <div class="header1">
-      <h1>Tom Timmel</h1>
-      <h2>Web Developer</h2>
+    <header class="header1 group">
+      <section class="flex-container1">
+        <h1>Tom Timmel</h1>
+        <h2>Web Developer</h2>
+      </section>
     <nav class="nav">
       <div class="icon-menu"></div>
         <ul>
           <li class="tab" data-content="projects1"><a href="#" class="icon-home">Home</a></li>
           <li class="tab" data-content="about"><a href="#" class="icon-info">About Me</a></li>
           <li><a href="https://www.linkedin.com/in/tom-timmel-896263122?trk=nav_responsive_tab_profile" class="icon-linkedin">linkedIn</a></li>
-          <li><a href="https://github.com/TomTimmel" class="icon-facebook2">Github</a></li>
+          <li><a href="https://github.com/TomTimmel" class="icon-github">Github</a></li>
         </ul>
     </nav>
-    </div>
-    <div id="projects1" class="tab-content">
-      <h1>Projects<h1>
-      <section id="portfolios">
-        <!-- <div class="template">
-          <h1>Title</h1>
-          <h2>Author</h2>
-          <time>Date Created</time>
-          <address>
-            <a href"">Click Here</a>
-          </address>
-        </div> -->
+  </header>
+    <main>
+      <section id="projects1" class="tab-content">
+        <h1>Projects<h1>
+        <section id="portfolios" class="flex-container">
+          <!-- <div class="template">
+            <h1>Title</h1>
+            <h2>Author</h2>
+            <time>Date Created</time>
+            <address>
+              <a href"">Click Here</a>
+            </address>
+          </div> -->
+        </section>
       </section>
-    </div>
-    <div id="about" class="tab-content">
-      <h1>About Me</h1>
-      <img src="images/Tom Web.jpg" id="about_image"/>
-      <p>
-        ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-
+      <select class="select">
+        <option id="me">About Me</option>
+        <option id="awa">Alaska Wildland Adventures</option>
+        <option id="yester">Yestermorrow</option>
+      </select>
+      <section id="about" class="tab-content">
+        <h1>About Me</h1>
+        <img src="images/Tom Web.jpg" id="about_image"/>
+        <p>
+          ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <p>
+          <a href="http://www.alaskawildland.com">Alaska Wildland Adventures</a> is an eco-tourism company focused on natural history while taking guests rafting, sea-kayaking, hiking, wildlife viewing and fishing. I filled the roles of Vice-President, Operations Manager, Project Coordinator and Business Manager.
+        </p>
+        <p>
+          <a href="http://www.yestermorrow.org">Yestermorrow Design/Build School</a> is a school focusing on sustainable design and building practices. Classes include Solar Design, Permaculture, and Deep Energy Retrofits. I filled the roles of Operations Manager, and Interim Executive Director.
+        </p>
+      </section>
+      <footer class="header1 group">
+        <section class="flex-container1">
+          <h1>Tom Timmel</h1>
+          <h2>Web Developer</h2>
+        </section>
+      <nav class="nav">
+        <div class="icon-menu"></div>
+          <ul>
+            <li class="tab" data-content="projects1"><a href="#" class="icon-home">Home</a></li>
+            <li class="tab" data-content="about"><a href="#" class="icon-info">About Me</a></li>
+            <li><a href="https://www.linkedin.com/in/tom-timmel-896263122?trk=nav_responsive_tab_profile" class="icon-linkedin">linkedIn</a></li>
+            <li><a href="https://github.com/TomTimmel" class="icon-facebook2">Github</a></li>
+          </ul>
+      </nav>
+    </footer>
+    </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <script src="scripts/port.js"></script>
