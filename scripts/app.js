@@ -1,6 +1,6 @@
 // 'use strict';
 
-var portfolio = [];
+PortItem.all = [];
 
 function PortItem (opts) {
   this.title = opts.title;
@@ -12,11 +12,11 @@ function PortItem (opts) {
 
 PortItem.prototype.toHtml = function() {
   var source = $('#template').html();
-  console.log(source);
+  // console.log(source);
   var template = Handlebars.compile(source);
-  console.log(template);
+  // console.log(template);
   var html = template(this);
-  console.log(html);
+  // console.log(html);
   return html;
   // var $newPortItem = $('div.template').clone();
   // $newPortItem.find('h1').text(this.title);
@@ -27,13 +27,16 @@ PortItem.prototype.toHtml = function() {
   // return $newPortItem;
 };
 
-portData.forEach(function(ele){
-  portfolio.push(new PortItem(ele));
-});
+PortItem.prepareData = function(data) {
+  // console.log(data, typeof data);
+  data.forEach(function(ele){
+    PortItem.all.push(new PortItem(ele));
+  });
 
-portfolio.forEach(function(a){
-  $('#portfolios').append(a.toHtml());
-});
+  PortItem.all.forEach(function(a){
+    $('#portfolios').append(a.toHtml());
+  });
+};
 
 handleNav = function() {
   $('.nav').on('click', '.tab', function(event){
@@ -43,6 +46,35 @@ handleNav = function() {
     $('#' + $selectedTab).fadeIn();
   });
 };
+
+PortItem.fetchAll = function(){
+  if(localStorage.port){
+    var getData = localStorage.getItem('port');
+    // console.log(getData, typeof getData);
+    var parseData = JSON.parse(getData);
+    // console.log(parseData, typeof parseData);
+    PortItem.prepareData(parseData);
+  }
+  else {
+    $.ajax('port.json', {
+      method: 'GET',
+      success: successHandler,
+      error: errorHandler
+    });
+  }
+};
+
+function successHandler(data){
+  var portData1 = JSON.stringify(data);
+  localStorage.setItem('port', portData1);
+  // var portData2 = JSON.parse(data);
+  // console.log(portData2, typeof portData2);
+  PortItem.prepareData(data);
+}
+
+function errorHandler(error){
+  alert('The data was unable to load');
+}
 
 selectAbout = function() {
   $('.select').on('change', function(event){
@@ -56,3 +88,4 @@ selectAbout = function() {
 
 handleNav();
 selectAbout();
+PortItem.fetchAll();
