@@ -44,11 +44,11 @@ PortItem.prepareData = function(data) {
       return acc;
     });
     console.log(stats + ' stats');
-    var ranged = PortItem.all.filter(function(obj){
-      return stats[obj.created];
-    }, {});
-    console.log(ranged + ' ranged');
-  });
+  //   var ranged = PortItem.all.filter(function(obj){
+  //     return stats[obj.created];
+  //   }, {});
+  //   console.log(ranged + ' ranged');
+  // });
 
   PortItem.all.forEach(function(a){
     $('#portfolios').append(a.toHtml());
