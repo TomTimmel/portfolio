@@ -41,6 +41,10 @@
     </nav>
   </header>
     <main>
+      <form class="date-range">
+        <input type="date" name="start range" id="start">
+        <input type="date" name="end range" id="end">
+      </form>
       <section id="projects1" class="tab-content">
         <h1>Projects<h1>
         <section id="portfolios" class="flex-container">
@@ -55,9 +59,9 @@
         </section>
       </section>
       <select class="select">
-        <option id="me">About Me</option>
-        <option id="awa">Alaska Wildland Adventures</option>
-        <option id="yester">Yestermorrow</option>
+        <option>About Me</option>
+        <option data-select="awa">Alaska Wildland Adventures</option>
+        <option>Yestermorrow</option>
       </select>
       <section id="about" class="tab-content">
         <h1>About Me</h1>
@@ -66,9 +70,13 @@
           ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
+      </section>
+      <section id="awa">
         <p>
           <a href="http://www.alaskawildland.com">Alaska Wildland Adventures</a> is an eco-tourism company focused on natural history while taking guests rafting, sea-kayaking, hiking, wildlife viewing and fishing. I filled the roles of Vice-President, Operations Manager, Project Coordinator and Business Manager.
         </p>
+      </section>
+      <section id="yester">
         <p>
           <a href="http://www.yestermorrow.org">Yestermorrow Design/Build School</a> is a school focusing on sustainable design and building practices. Classes include Solar Design, Permaculture, and Deep Energy Retrofits. I filled the roles of Operations Manager, and Interim Executive Director.
         </p>

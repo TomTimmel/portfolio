@@ -33,10 +33,28 @@ PortItem.prepareData = function(data) {
     PortItem.all.push(new PortItem(ele));
   });
 
+  $('.date-range').on('change', function(event){
+    event.preventDefault();
+    var stats = PortItem.all.map(function(obj){
+      return obj.created;
+    }).reduce(function(acc, curr){
+      if(Date(curr) > Date($('#start').val()) && Date(curr) < Date($('#end').val())){
+        acc[curr] = true;
+      }
+      return acc;
+    });
+    console.log(stats + ' stats');
+    var ranged = PortItem.all.filter(function(obj){
+      return stats[obj.created];
+    }, {});
+    console.log(ranged + ' ranged');
+  });
+
   PortItem.all.forEach(function(a){
     $('#portfolios').append(a.toHtml());
   });
 };
+
 
 handleNav = function() {
   $('.nav').on('click', '.tab', function(event){
@@ -79,8 +97,8 @@ function errorHandler(error){
 selectAbout = function() {
   $('.select').on('change', function(event){
     event.preventDefault();
-    if($(this).val('#awa')) {
-      $('#me').hide();
+    if($(this).val(select.option.dataSelect.awa)) {
+      $('#about').hide();
       $('#yester').hide();
     }
   });
