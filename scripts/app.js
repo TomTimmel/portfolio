@@ -38,17 +38,25 @@ PortItem.prepareData = function(data) {
     var stats = PortItem.all.map(function(obj){
       return obj.created;
     }).reduce(function(acc, curr){
-      if(Date(curr) > Date($('#start').val()) && Date(curr) < Date($('#end').val())){
+      console.log(curr, 'curr');
+      console.log($('#start').val(), 'date');
+      console.log($('#end').val(), 'date');
+      if(curr > $('#start').val() && curr < $('#end').val()){
         acc[curr] = true;
       }
       return acc;
+    }, {});
+    console.log(stats, ' stats');
+    var ranged = PortItem.all.filter(function(obj){
+      return stats[obj.created];
     });
-    console.log(stats + ' stats');
-  //   var ranged = PortItem.all.filter(function(obj){
-  //     return stats[obj.created];
-  //   }, {});
-  //   console.log(ranged + ' ranged');
-  // });
+    console.log(ranged[0].authors, ' ranged');
+    if(ranged.length){
+      $('#portfolios').hide();
+      $('[data-author="' + ranged[0].authors + '"]').fadeIn();
+    }
+  });
+
 
   PortItem.all.forEach(function(a){
     $('#portfolios').append(a.toHtml());
