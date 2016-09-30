@@ -1,117 +1,126 @@
 // 'use strict';
+(function(module) {
 
-PortItem.all = [];
+  var getDate = function(){
+    var date = new Date();
+    var allDate = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
+    document.getElementById('end').setAttribute('value', '2016-12-15');
+  };
+  getDate();
 
-function PortItem (opts) {
-  this.title = opts.title;
-  this.authors = opts.authors;
-  this.webUrl = opts.webUrl;
-  this.created = opts.created;
-  this.image = opts.image;
-}
+  PortItem.all = [];
 
-PortItem.prototype.toHtml = function() {
-  var source = $('#template').html();
-  // console.log(source);
-  var template = Handlebars.compile(source);
-  // console.log(template);
-  var html = template(this);
-  // console.log(html);
-  return html;
-  // var $newPortItem = $('div.template').clone();
-  // $newPortItem.find('h1').text(this.title);
-  // $newPortItem.find('h2').text(this.authors);
-  // $newPortItem.find('a').attr('href', this.webUrl);
-  // $newPortItem.find('time').text(this.created);
-  // $newPortItem.removeClass('template');
-  // return $newPortItem;
-};
+  function PortItem (opts) {
+    this.title = opts.title;
+    this.authors = opts.authors;
+    this.webUrl = opts.webUrl;
+    this.created = opts.created;
+    this.image = opts.image;
+  }
 
-PortItem.prepareData = function(data) {
-  // console.log(data, typeof data);
-  data.forEach(function(ele){
-    PortItem.all.push(new PortItem(ele));
-  });
+  // function to initiate template, this function is call in PortItem.prepareData
 
-  $('.date-range').on('change', function(event){
-    event.preventDefault();
-    var stats = PortItem.all.map(function(obj){
-      return obj.created;
-    }).reduce(function(acc, curr){
-      console.log(curr, 'curr');
-      console.log($('#start').val(), 'date');
-      console.log($('#end').val(), 'date');
-      if(curr > $('#start').val() && curr < $('#end').val()){
-        acc[curr] = true;
+  PortItem.prototype.toHtml = function() {
+    var source = $('#template').html();
+    var template = Handlebars.compile(source);
+    var html = template(this);
+    return html;
+  };
+
+  // function to push the data to the array of objects and append to the template in projects.html.  Also, the click-handler including callback function is included here. Can I/ should I move it?
+  PortItem.prepareData = function(data) {
+    data.forEach(function(ele){
+      PortItem.all.push(new PortItem(ele));
+    });
+
+    $('.date-range').on('change', function(event){
+      event.preventDefault();
+      var stats = PortItem.all.map(function(obj){
+        return obj.created;
+      }).reduce(function(acc, curr){
+        if(curr > $('#start').val() && curr < $('#end').val()){
+          acc[curr] = true;
+        }
+        return acc;
+      }, {});
+      var ranged = PortItem.all.filter(function(obj){
+        return stats[obj.created];
+      });
+
+      $('.main-projects').hide();
+      ranged.forEach(function(obj){
+        $('[data-created="' + obj.created + '"]').fadeIn();
+      });
+    });
+
+    PortItem.all.forEach(function(a){
+      $('#portfolios').append(a.toHtml());
+    });
+  };
+
+  // Click-handler function for main nav to toggle between the project section and about section...
+  handleNav = function() {
+    $('.nav').on('click', '.tab', function(event){
+      event.preventDefault();
+      $('.tab-content').hide();
+      var $selectedTab = $(this).data('content');
+      $('#' + $selectedTab).fadeIn();
+    });
+  };
+
+  //function to either retrieve data from local storage or from port.json.
+  PortItem.fetchAll = function(){
+    if(localStorage.port){
+      var getData = localStorage.getItem('port');
+      var parseData = JSON.parse(getData);
+      PortItem.prepareData(parseData);
+    }
+    else {
+      $.ajax('port.json', {
+        method: 'GET',
+        success: successHandler,
+        error: errorHandler
+      });
+    }
+  };
+
+  // if the data successfully loads, put it into local storage.
+  function successHandler(data){
+    var portData1 = JSON.stringify(data);
+    localStorage.setItem('port', portData1);
+    // var portData2 = JSON.parse(data);
+    // console.log(portData2, typeof portData2);
+    PortItem.prepareData(data);
+  }
+
+  function errorHandler(error){
+    alert('The data was unable to load');
+  }
+
+  //Click-handler to select the section of the About Me section to display..
+  selectAbout = function() {
+    $('.select').on('change', function(event){
+      event.preventDefault();
+      if($(this).val() === 'Alaska Wildland Adventures') {
+        $('.about-me').hide();
+        $('#awa').fadeIn('fast');
       }
-      return acc;
-    }, {});
-    console.log(stats, ' stats');
-    var ranged = PortItem.all.filter(function(obj){
-      return stats[obj.created];
+      else if ($(this).val() === 'Yestermorrow') {
+        $('.about-me').hide();
+        $('#yester').fadeIn('fast');
+      }
+      else if ($(this).val() === 'About Me'){
+        $('.about-me').hide();
+        $('#about').fadeIn('fast');
+      }
+      else {
+        $('.about-me').hide();
+        $('.about-me').fadeIn('fast');
+      }
     });
-    console.log(ranged[0].authors, ' ranged');
-    if(ranged.length){
-      $('#portfolios').hide();
-      $('[data-author="' + ranged[0].authors + '"]').fadeIn();
-    }
-  });
+  };
 
-
-  PortItem.all.forEach(function(a){
-    $('#portfolios').append(a.toHtml());
-  });
-};
-
-
-handleNav = function() {
-  $('.nav').on('click', '.tab', function(event){
-    event.preventDefault();
-    $('.tab-content').hide();
-    var $selectedTab = $(this).data('content');
-    $('#' + $selectedTab).fadeIn();
-  });
-};
-
-PortItem.fetchAll = function(){
-  if(localStorage.port){
-    var getData = localStorage.getItem('port');
-    // console.log(getData, typeof getData);
-    var parseData = JSON.parse(getData);
-    // console.log(parseData, typeof parseData);
-    PortItem.prepareData(parseData);
-  }
-  else {
-    $.ajax('port.json', {
-      method: 'GET',
-      success: successHandler,
-      error: errorHandler
-    });
-  }
-};
-
-function successHandler(data){
-  var portData1 = JSON.stringify(data);
-  localStorage.setItem('port', portData1);
-  // var portData2 = JSON.parse(data);
-  // console.log(portData2, typeof portData2);
-  PortItem.prepareData(data);
-}
-
-function errorHandler(error){
-  alert('The data was unable to load');
-}
-
-selectAbout = function() {
-  $('.select').on('change', function(event){
-    event.preventDefault();
-    if($(this).val(select.option.dataSelect.awa)) {
-      $('#about').hide();
-      $('#yester').hide();
-    }
-  });
-};
-
-handleNav();
-selectAbout();
-PortItem.fetchAll();
+  handleNav();
+  selectAbout();
+  PortItem.fetchAll();
+})(window);

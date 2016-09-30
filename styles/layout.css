@@ -58,10 +58,8 @@ footer section h2{
   width: 30%;
   }
 
-  #portfolios div{
-    /*float:left;*/
-    width: 50%;
-    /*height: 400px:*/
+  #portfolios div {
+    width: 46%;
     margin: 0.75%;
     background-color: #cd5c5c;
   }
