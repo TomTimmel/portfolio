@@ -2,9 +2,9 @@
 (function(module) {
 
   var getDate = function(){
-    var date = new Date();
-    var allDate = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
-    document.getElementById('end').setAttribute('value', '2016-12-15');
+    var date = new Date().toISOString().split('T', 1);
+    var date1 = date[0];
+    document.getElementById('end').setAttribute('value', date1);
   };
   getDate();
 
@@ -111,7 +111,7 @@
       }
       else if ($(this).val() === 'About Me'){
         $('.about-me').hide();
-        $('#about').fadeIn('fast');
+        $('#about1').fadeIn('fast');
       }
       else {
         $('.about-me').hide();
@@ -123,4 +123,8 @@
   handleNav();
   selectAbout();
   PortItem.fetchAll();
+
+  if(window.location.href === 'http://127.0.0.1:8080/projects.html?about'){
+    $('#projects1').hide();
+  }
 })(window);

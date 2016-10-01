@@ -52,6 +52,26 @@ input, select {
   background-color: #aa6e39;
   margin: 0;
 }
+@media only screen and (min-width: 550px){
+  #proImage {
+  width: 30%;
+  }
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #portfolios div {
+    width: 40%;
+    margin: 0.75%;
+    background-color: #aa6e39;
+  }
+  #about_image {
+    width: 10%;
+    float: left;
+  }
+}
 
 @media only screen and (min-width: 640px) {
   .icon-menu {
@@ -74,9 +94,9 @@ input, select {
     display: inline;
     border-bottom: none;
   }
-  .flex-container {
+  /*.flex-container {
     display: flex;
     flex-wrap: wrap;
-  }
+  }*/
 
 }

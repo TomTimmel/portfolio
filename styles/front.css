@@ -1,6 +1,10 @@
 /** {
   border: red dotted 1px;
 }*/
+body {
+  height: 100%;
+}
+
 h1 {
   margin-top: 0;
 }
@@ -63,6 +67,7 @@ img {
   }
 }
 @media only screen and (min-width: 900px){
+
   .header {
     float: left;
     height: 295px;
