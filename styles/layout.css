@@ -52,19 +52,3 @@ footer section h2{
   padding-top: 8px;
   margin-left: 5px;
 }
-
-@media only screen and (min-width: 500px){
-  #proImage {
-  width: 30%;
-  }
-
-  #portfolios div {
-    width: 46%;
-    margin: 0.75%;
-    background-color: #cd5c5c;
-  }
-  #about_image {
-    width: 10%;
-    float: left;
-  }
-}
