@@ -29,13 +29,14 @@
 input, select {
   background-color: grey;
   border: none;
+  padding-left: 8px;
 }
 
 #projects1 h1{
   font-size: 36px;
   background-color: #aa6e39;
   margin: 0;
-
+  padding-left: 10px;
 }
 #projects1 div{
   font-size: 16px;
@@ -46,11 +47,24 @@ input, select {
   border: solid black 1px;
   border-radius: 3%;
   padding: 15px;
+  text-align: center;
+}
+.main-projects a, time {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+.main-projects img{
+  margin-top: 16px;
 }
 #about {
   font-size: 16px;
   background-color: #aa6e39;
+  padding: 12px;
   margin: 0;
+}
+#about1 img {
+  padding-right: 7px;
 }
 @media only screen and (min-width: 550px){
   #proImage {

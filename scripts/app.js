@@ -36,17 +36,19 @@
     $('.date-range').on('change', function(event){
       event.preventDefault();
       var stats = PortItem.all.map(function(obj){
+        console.log(obj.created, 'obj.created');
         return obj.created;
       }).reduce(function(acc, curr){
         if(curr > $('#start').val() && curr < $('#end').val()){
           acc[curr] = true;
+          console.log(acc);
         }
         return acc;
       }, {});
       var ranged = PortItem.all.filter(function(obj){
         return stats[obj.created];
       });
-
+      console.log(ranged, 'ranged');
       $('.main-projects').hide();
       ranged.forEach(function(obj){
         $('[data-created="' + obj.created + '"]').fadeIn();
@@ -71,6 +73,17 @@
   //function to either retrieve data from local storage or from port.json.
   PortItem.fetchAll = function(){
     if(localStorage.port){
+      // $.ajax({
+      //   type: 'HEAD',
+      //   url: 'port.json',
+      //   success: function(data, message, xhr) {
+      //     var eTag = xhr.getResponseHeader('eTag');
+      //     if (!localStorage.eTag || eTag !== localStorage.eTag) {
+      //       localStorage.eTag = eTag;
+      //     }
+      //
+      //   }
+      // });
       var getData = localStorage.getItem('port');
       var parseData = JSON.parse(getData);
       PortItem.prepareData(parseData);
