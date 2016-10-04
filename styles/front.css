@@ -1,14 +1,15 @@
 /** {
   border: red dotted 1px;
 }*/
-/*body {
+body {
+  background-color: #a52a2a;
   height: 100%;
-}*/
+}
 .flex-container {
   display: flex;
-  height:50%;
+  align-content: stretch;
+  /*height:50%;*/
   flex-wrap: wrap;
-  /*justify-content: center;*/
 }
 h1 {
   margin-top: 0;
@@ -98,6 +99,7 @@ h1 {
   .projects {
     /*float: left;*/
     /*height: 50%;*/
+    align-self: center;
     width: 33.33%;
     /*flex-grow: 1;*/
   }
