@@ -61,14 +61,14 @@
   };
 
   // Click-handler function for main nav to toggle between the project section and about section...
-  handleNav = function() {
-    $('.nav').on('click', '.tab', function(event){
-      event.preventDefault();
-      $('.tab-content').hide();
-      var $selectedTab = $(this).data('content');
-      $('#' + $selectedTab).fadeIn();
-    });
-  };
+  // handleNav = function() {
+  //   $('.nav').on('click', '.tab', function(event){
+  //     event.preventDefault();
+  //     $('.tab-content').hide();
+  //     var $selectedTab = $(this).data('content');
+  //     $('#' + $selectedTab).fadeIn();
+  //   });
+  // };
 
   //function to either retrieve data from local storage or from port.json.
   PortItem.fetchAll = function(){
@@ -133,11 +133,11 @@
     });
   };
 
-  handleNav();
+  // handleNav();
   selectAbout();
   PortItem.fetchAll();
 
-  if(window.location.href === 'http://127.0.0.1:8080/projects.html?about'){
-    $('#projects1').hide();
-  }
+  // if(window.location.href === 'http://127.0.0.1:8080/projects.html?about'){
+  // //   $('#projects1').hide();
+  // // }
 })(window);
