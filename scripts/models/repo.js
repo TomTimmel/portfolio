@@ -13,8 +13,7 @@ reposObj.requestPushRepos = function(){
     },
     error: function(error){
       console.log('err: ', error);
-    },
-    headers: {Authorization: 'token ' + token}
+    }
   });
 };
 
