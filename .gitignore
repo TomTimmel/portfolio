@@ -1,2 +1,3 @@
 node_modules/*
 vendors/node_modules/*
+scripts/models/githubToken.js/*

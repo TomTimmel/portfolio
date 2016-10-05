@@ -4,20 +4,23 @@
     "authors": "Tom Timmel, Chris Brunner, Steven Jackson",
     "webUrl": "https://scuttling.github.io/memory-card/index.html",
     "created": "2016-09-15",
-    "image": "images/memorycard.PNG"
+    "image": "images/memorycard.PNG",
+    "description": "Memory Card Game Codefellows 201"
   },
   {
     "title": "Salmon Cookies",
     "authors": "Tom Timmel",
     "webUrl": "https://tomtimmel.github.io/salmon_cookies/sales.html",
     "created": "2016-08-26",
-    "image": "images/salmoncookies.PNG"
+    "image": "images/salmoncookies.PNG",
+    "description": "Salmon Cookies Site Codefellows 201"
   },
   {
     "title": "About Me Project",
     "authors": "Tom Timmel",
     "webUrl": "https://tomtimmel.github.io/about_me/index.html",
     "created": "2016-08-19",
-    "image": "images/guessinggame.PNG"
+    "image": "images/guessinggame.PNG",
+    "description": "About Me Site Codefellows 201"
   }
 ]

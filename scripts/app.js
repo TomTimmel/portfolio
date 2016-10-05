@@ -16,6 +16,7 @@
     this.webUrl = opts.webUrl;
     this.created = opts.created;
     this.image = opts.image;
+    this.description = opts.description;
   }
 
   // function to initiate template, this function is call in PortItem.prepareData
@@ -32,29 +33,43 @@
     data.forEach(function(ele){
       PortItem.all.push(new PortItem(ele));
     });
-
+    // console.log('PortItem', PortItem.all);
     $('.date-range').on('change', function(event){
       event.preventDefault();
       var stats = PortItem.all.map(function(obj){
-        console.log(obj.created, 'obj.created');
+        // console.log(obj.created, 'obj.created');
         return obj.created;
       }).reduce(function(acc, curr){
         if(curr > $('#start').val() && curr < $('#end').val()){
           acc[curr] = true;
-          console.log(acc);
+          // console.log(acc);
         }
         return acc;
       }, {});
       var ranged = PortItem.all.filter(function(obj){
         return stats[obj.created];
       });
-      console.log(ranged, 'ranged');
+      // console.log(ranged, 'ranged');
       $('.main-projects').hide();
       ranged.forEach(function(obj){
         $('[data-created="' + obj.created + '"]').fadeIn();
       });
     });
-
+    var gitHubAddress = function(){
+      var descriptor = PortItem.all.map(function(obj){
+        console.log('descriptor: ', obj.description);
+        return obj.description;
+      }).reduce(function(acc,curr){
+        acc[curr] = true;
+        return acc;
+      }, {});
+      console.log('descriptor: ', descriptor);
+      var gitHubFilter = reposObj.all.filter(function(obj){
+        return descriptor[obj.description];
+      });
+      console.log('gitHubFilter: ', gitHubFilter);
+    };
+    gitHubAddress();
     PortItem.all.forEach(function(a){
       $('#portfolios').append(a.toHtml());
     });
