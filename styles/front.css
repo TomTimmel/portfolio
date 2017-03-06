@@ -45,62 +45,62 @@ h1 {
   text-align: center;
 }
 .projects a {
-  font-size: 24px;
+  font-size: 3.5em;
   text-decoration: none;
   color: black;
 }
 
 @media only screen and (min-width: 500px){
-  /*.header {
+  .header {
     float: left;
     height: 237px;
     width: 50%;
-  }*/
-  /*img {
+  }
+  img {
     float: left;
     height: 237px;
     width: 50%;
-  }*/
-  /*.links {
+  }
+  .links {
     float: left;
     height: 237px;
     width: 50%;
-  }*/
-  /*.projects {
+  }
+  .projects {
     float: left;
     height: 237px;
     width: 50%;
-  }*/
+  }
 }
 @media only screen and (min-width: 900px){
 
   .header {
-    /*float: left;*/
-    /*height: 298px;*/
+    float: left;
+    height: 298px;
     width: 33.33%;
-    /*flex-grow: 1;*/
+    flex-grow: 1;
   }
   .image {
-    /*float: left;*/
-    /*height: 50%;*/
+    float: left;
+    height: 50%;
     width: 33.33%;
-    /*flex-grow: 1;*/
+    flex-grow: 1;
   }
   img {
     width: 100%;
     height: 100%;
   }
   .links {
-    /*float: left;*/
-    /*height: 50%;*/
+    float: left;
+    height: 50%;
     width: 33.33%;
-    /*flex-grow: 1;*/
+    flex-grow: 1;
   }
   .projects {
-    /*float: left;*/
-    /*height: 50%;*/
+    float: left;
+    height: 50%;
     align-self: center;
     width: 33.33%;
-    /*flex-grow: 1;*/
+    flex-grow: 1;
   }
 }

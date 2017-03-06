@@ -22,5 +22,13 @@
     "created": "2016-08-19",
     "image": "images/guessinggame.PNG",
     "description": "About Me Site Codefellows 201"
+  },
+  {
+    "title": "Words For Music",
+    "authors": "Tom Timmel, John Gothro, Niilo Smeds",
+    "webUrl": "https://words-for-music.herokuapp.com/search_section",
+    "created": "2016-10-13",
+    "image": "images/wordsformusic.PNG",
+    "description": "Words For Music Codefellows 301"
   }
 ]
