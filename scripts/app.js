@@ -17,6 +17,7 @@
     this.created = opts.created;
     this.image = opts.image;
     this.description = opts.description;
+    this.gitUrl = opts.gitUrl;
   }
 
   // function to initiate template, this function is call in PortItem.prepareData
@@ -57,24 +58,29 @@
     });
     var gitHubAddress = function(){
       var descriptor = PortItem.all.map(function(obj){
-        console.log('descriptor: ', obj.description);
+        console.log('obj.description: ', obj.description);
         return obj.description;
       }).reduce(function(acc,curr){
         acc[curr] = true;
         return acc;
       }, {});
       console.log('descriptor: ', descriptor);
-      var gitHubFilter = reposObj.all.filter(function(obj){
-        return descriptor[obj.description];
+
+      reposObj.all.forEach(function(element){
+        for (var i = 0; i < PortItem.all.length; i++){
+          if(PortItem.all[i].description === element.description){
+            PortItem.all[i].gitUrl = element.git_url;
+          }
+        }
       });
-      console.log('gitHubFilter: ', gitHubFilter);
+      console.log('PortItem: ', PortItem.all);
     };
     gitHubAddress();
+
     PortItem.all.forEach(function(a){
       $('#portfolios').append(a.toHtml());
     });
   };
-
   // Click-handler function for main nav to toggle between the project section and about section...
   // handleNav = function() {
   //   $('.nav').on('click', '.tab', function(event){
@@ -118,7 +124,11 @@
     localStorage.setItem('port', portData1);
     // var portData2 = JSON.parse(data);
     // console.log(portData2, typeof portData2);
-    PortItem.prepareData(data);
+
+    var stall = function(){
+      PortItem.prepareData(data);
+    };
+    reposObj.requestPushRepos(stall);
   }
 
   function errorHandler(error){
